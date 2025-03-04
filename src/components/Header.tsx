@@ -5,12 +5,19 @@ import Link from 'next/link'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
+    const newState = !isMobileMenuOpen
+    setIsMobileMenuOpen(newState)
   }
 
   useEffect(() => {
+    // 초기 스크롤 위치 확인
+    if (window.scrollY > 20) {
+      setScrolled(true)
+    }
+
     // 모바일 메뉴 토글 스크립트
     const handleResize = () => {
       if (window.innerWidth >= 1024 && isMobileMenuOpen) {
@@ -18,36 +25,59 @@ export default function Header() {
       }
     }
 
+    // 스크롤 감지 스크립트
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [isMobileMenuOpen])
 
   return (
     <header id="header">
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-4 fixed w-full z-50">
+      <nav
+        className={`${
+          scrolled || isMobileMenuOpen
+            ? 'bg-white/90 shadow-md backdrop-blur-md'
+            : 'bg-transparent'
+        } 
+        px-4 lg:px-6 py-4 fixed w-full z-50 transition-all duration-300`}
+      >
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <Link
             href="#hero"
             className="flex items-center"
           >
             <span
-              className="self-center text-xl font-semibold whitespace-nowrap text-primary-600 font-primary"
+              className="self-center text-xl font-semibold whitespace-nowrap font-primary"
               style={{
-                color: 'rgb(0, 0, 0)',
-                fontSize: '22px',
-                fontWeight: 600,
+                color: scrolled || isMobileMenuOpen ? '#111827' : '#ffffff',
+                fontSize: '24px',
+                fontWeight: 700,
                 lineHeight: '28px',
+                transition: 'color 0.3s ease',
               }}
             >
               Why
             </span>
             <span
-              className="self-center text-xl font-semibold whitespace-nowrap text-primary-600 font-primary"
+              className="self-center text-xl font-semibold whitespace-nowrap font-primary"
               style={{
-                color: '#0166CD',
-                fontSize: '22px',
-                fontWeight: 600,
+                color: '#3B82F6',
+                fontSize: '24px',
+                fontWeight: 700,
                 lineHeight: '28px',
+                transition: 'color 0.3s ease',
               }}
             >
               Works
@@ -56,7 +86,11 @@ export default function Header() {
           <div className="flex items-center lg:order-2">
             <button
               type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-neutral-500 rounded-lg lg:hidden hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200"
+              className={`inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden focus:outline-none focus:ring-2 ${
+                scrolled
+                  ? 'text-neutral-600 hover:bg-neutral-100 focus:ring-neutral-200'
+                  : 'text-white hover:bg-white/10 focus:ring-white/20'
+              }`}
               aria-controls="mobile-menu"
               aria-expanded={isMobileMenuOpen}
               onClick={toggleMobileMenu}
@@ -91,10 +125,16 @@ export default function Header() {
           <div
             className={`${
               isMobileMenuOpen ? '' : 'hidden'
-            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+            } justify-between items-center w-full lg:${
+              scrolled ? 'flex' : 'hidden'
+            } lg:w-auto lg:order-1`}
             id="mobile-menu"
           >
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+            <ul
+              className={`flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 ${
+                scrolled || isMobileMenuOpen ? 'text-neutral-800' : 'text-white'
+              }`}
+            >
               <li>
                 <Link
                   href="#hero"

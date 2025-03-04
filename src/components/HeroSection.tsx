@@ -4,11 +4,11 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="bg-gradient-to-b from-[#2E8B57] to-[#4682B4] min-h-[80vh] flex items-center justify-center px-4 relative overflow-hidden"
+      className="bg-gradient-to-b from-[#1A5D38] to-[#2C5282] min-h-[80vh] flex items-center justify-center px-4 relative overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')] bg-cover bg-center opacity-30"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#2E8B57]/50 to-[#4682B4]/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A5D38]/60 to-[#2C5282]/80"></div>
       </div>
 
       <div className="container mx-auto max-w-6xl z-10 text-center">
@@ -27,7 +27,11 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="#about"
-              className="px-8 py-3 bg-white text-[#2E8B57] border-2 border-white rounded-full text-lg font-medium hover:bg-[#F5F5DC] transition-all duration-300 shadow-lg hover:shadow-xl animate__animated animate__fadeInLeft"
+              style={{
+                fontWeight: 700,
+                lineHeight: '28px',
+              }}
+              className="px-8 py-3 bg-white text-[#2E8B57] border-2 border-white rounded-full text-lg font-medium hover:bg-transparent hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl animate__animated animate__fadeInLeft"
             >
               알아보기
             </Link>
