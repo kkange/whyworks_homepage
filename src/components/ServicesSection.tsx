@@ -311,7 +311,7 @@ export default function ServicesSection() {
                 신뢰할수 있는 스마트 플랫폼
               </h3>
               <p className="text-neutral-600 mb-4 font-secondary">
-                정보기술을 통한 생산자와 소비자를 연결하고 신롸할수 있는
+                정보기술을 통한 생산자와 소비자를 연결하고 신뢰할수 있는
                 유통환경 구축
               </p>
               <ul className="space-y-2 mb-6">

@@ -157,7 +157,7 @@ export default function AboutSection() {
                     신뢰할수 있는 스마트 플랫폼
                   </h4>
                   <p className="text-neutral-600 font-secondary mt-2">
-                    정보기술을 통한 생산자와 소비자를 연결하고 신롸할수 있는
+                    정보기술을 통한 생산자와 소비자를 연결하고 신뢰할수 있는
                     유통환경
                   </p>
                 </div>
