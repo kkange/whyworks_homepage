@@ -31,28 +31,28 @@ export async function POST(request: Request) {
     const mailOptions = {
       from: `"WhyWorks 웹사이트" <${process.env.EMAIL_USER}>`,
       to: recipientEmail,
-      subject: `[WhyWorks 문의] ${subject || '일반 문의'} - ${name}님으로부터`,
+      subject: `[WhyWorks 문의] ${subject || '일반'} - ${name}님으로부터`,
       text: `
-이름: ${name}
-이메일: ${email}
-전화번호: ${phone || '미입력'}
-문의 유형: ${subject || '일반 문의'}
+          이름: ${name}
+          이메일: ${email}
+          전화번호: ${phone || '미입력'}
+          문의 유형: ${subject || '일반'}
 
-메시지:
-${message}
+          메시지:
+          ${message}
       `,
       html: `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-  <h2 style="color: #2E8B57;">WhyWorks 웹사이트 문의</h2>
-  <p><strong>이름:</strong> ${name}</p>
-  <p><strong>이메일:</strong> ${email}</p>
-  <p><strong>전화번호:</strong> ${phone || '미입력'}</p>
-  <p><strong>문의 유형:</strong> ${subject || '일반 문의'}</p>
-  <div style="margin-top: 20px; padding: 15px; background-color: #f5f5f5; border-left: 4px solid #2E8B57;">
-    <h3 style="margin-top: 0;">메시지:</h3>
-    <p style="white-space: pre-line;">${message}</p>
-  </div>
-</div>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #2E8B57;">WhyWorks 웹사이트 문의</h2>
+          <p><strong>이름:</strong> ${name}</p>
+          <p><strong>이메일:</strong> ${email}</p>
+          <p><strong>전화번호:</strong> ${phone || '미입력'}</p>
+          <p><strong>문의 유형:</strong> ${subject || '일반 문의'}</p>
+          <div style="margin-top: 20px; padding: 15px; background-color: #f5f5f5; border-left: 4px solid #2E8B57;">
+            <h3 style="margin-top: 0;">메시지:</h3>
+            <p style="white-space: pre-line;">${message}</p>
+          </div>
+        </div>
       `,
     }
 

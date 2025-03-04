@@ -115,9 +115,9 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12 md:items-stretch">
           {/* 지도 및 연락처 정보 */}
           <div className="order-2 md:order-1 flex flex-col md:h-full">
-            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md mb-8 flex-grow">
+            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md mb-8 flex flex-col flex-grow">
               <h3 className="text-xl font-bold mb-4 text-[#2E8B57] font-primary">찾아오시는 길</h3>
-              <div className="embed-container rounded-lg overflow-hidden mb-4 h-72">
+              <div className="embed-container rounded-lg overflow-hidden mb-4 h-72 md:flex-grow">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1583.1236276514546!2d126.94582687677395!3d37.36485997210193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b5d0a1d6a8a97%3A0x9f3c5b9a8c4f8c9a!2z6rK96riw64-EIOq1sO2PrOyLnCDqs6DsgrDroZwxNDjrsojquLggMTc!5e0!3m2!1sko!2skr!4v1620120000000!5m2!1sko!2skr"
                   width="100%"
@@ -173,18 +173,6 @@ export default function ContactSection() {
                 <li className="flex justify-between">
                   <span className="text-neutral-700 font-medium">월요일 - 금요일:</span>
                   <span className="text-neutral-600">9:00 AM - 6:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-neutral-700 font-medium">토요일:</span>
-                  <span className="text-neutral-600">휴무</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-neutral-700 font-medium">일요일:</span>
-                  <span className="text-neutral-600">휴무</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-neutral-700 font-medium">공휴일:</span>
-                  <span className="text-neutral-600">휴무</span>
                 </li>
               </ul>
             </div>

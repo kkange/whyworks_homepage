@@ -154,13 +154,7 @@ export default function AboutSection() {
             <div className="relative">
               <div className="absolute inset-0 bg-[#4682B4] rounded-lg transform translate-x-4 translate-y-4"></div>
               <div className="relative bg-[#2E8B57] p-6 rounded-lg shadow-xl">
-                <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg mb-6">
-                  <img
-                    src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"
-                    alt="첨단 농업 기술"
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
+                <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg mb-6"></div>
                 <div className="text-white">
                   <h3 className="text-xl font-bold mb-2 font-primary">
                     2025년 주요 성과
