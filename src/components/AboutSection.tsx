@@ -12,6 +12,8 @@ export default function AboutSection() {
           if (entry.isIntersecting) {
             const animationClass = entry.target.getAttribute('data-animate');
             if (animationClass) {
+              // remove the opacity-0 class so the element becomes visible
+              entry.target.classList.remove('opacity-0');
               entry.target.classList.add('animate__animated', animationClass);
             }
             observer.unobserve(entry.target);
@@ -36,6 +38,8 @@ export default function AboutSection() {
         }
         // remove the animation classes so they don't animate on initial load
         item.classList.remove('animate__fadeIn', 'animate__fadeInLeft', 'animate__fadeInRight');
+        // add opacity-0 class to hide the element initially
+        item.classList.add('opacity-0');
         observer.observe(item);
       });
 

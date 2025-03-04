@@ -12,6 +12,8 @@ export default function ServicesSection() {
           if (entry.isIntersecting) {
             const animationClass = entry.target.getAttribute('data-animate');
             if (animationClass) {
+              // remove the opacity-0 class so the element becomes visible
+              entry.target.classList.remove('opacity-0');
               entry.target.classList.add('animate__animated', animationClass);
             }
             observer.unobserve(entry.target);
@@ -31,6 +33,8 @@ export default function ServicesSection() {
         }
         // remove animation classes so they don't animate on initial load
         item.classList.remove('animate__fadeIn', 'animate__fadeInUp', 'animate__delay-1s', 'animate__delay-2s', 'animate__delay-3s');
+        // add opacity-0 to hide the element initially
+        item.classList.add('opacity-0');
         observer.observe(item);
       }
     });
