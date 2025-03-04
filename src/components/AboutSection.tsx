@@ -10,18 +10,18 @@ export default function AboutSection() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const animationClass = entry.target.getAttribute('data-animate');
+            const animationClass = entry.target.getAttribute('data-animate')
             if (animationClass) {
               // remove the opacity-0 class so the element becomes visible
-              entry.target.classList.remove('opacity-0');
-              entry.target.classList.add('animate__animated', animationClass);
+              entry.target.classList.remove('opacity-0')
+              entry.target.classList.add('animate__animated', animationClass)
             }
-            observer.unobserve(entry.target);
+            observer.unobserve(entry.target)
           }
-        });
+        })
       },
       { threshold: 0.1 }
-    );
+    )
 
     document
       .querySelectorAll(
@@ -30,28 +30,32 @@ export default function AboutSection() {
       .forEach((item) => {
         // store the original animation class in a data attribute
         if (item.classList.contains('animate__fadeIn')) {
-          item.setAttribute('data-animate', 'animate__fadeIn');
+          item.setAttribute('data-animate', 'animate__fadeIn')
         } else if (item.classList.contains('animate__fadeInLeft')) {
-          item.setAttribute('data-animate', 'animate__fadeInLeft');
+          item.setAttribute('data-animate', 'animate__fadeInLeft')
         } else if (item.classList.contains('animate__fadeInRight')) {
-          item.setAttribute('data-animate', 'animate__fadeInRight');
+          item.setAttribute('data-animate', 'animate__fadeInRight')
         }
         // remove the animation classes so they don't animate on initial load
-        item.classList.remove('animate__fadeIn', 'animate__fadeInLeft', 'animate__fadeInRight');
+        item.classList.remove(
+          'animate__fadeIn',
+          'animate__fadeInLeft',
+          'animate__fadeInRight'
+        )
         // add opacity-0 class to hide the element initially
-        item.classList.add('opacity-0');
-        observer.observe(item);
-      });
+        item.classList.add('opacity-0')
+        observer.observe(item)
+      })
 
     return () => {
-      observer.disconnect();
-    };
-  }, []);
+      observer.disconnect()
+    }
+  }, [])
 
   return (
     <section
       id="about"
-      className="py-20 bg-white"
+      className="py-20 bg-white overflow-x-hidden"
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16 animate__fadeIn">
@@ -71,8 +75,8 @@ export default function AboutSection() {
               우리의 비전
             </h3>
             <p className="text-neutral-700 mb-6 font-secondary">
-              농업과 첨단 기술을 융합하여 식량 안보를 강화하고, 환경 친화적인
-              농업 방식을 통해 지속 가능한 미래를 만들어갑니다.
+              농업과 첨단 기술을 융합하여 농산물의 품질과 가치를 강화하고, 환경
+              친화적인 농업 방식을 통해 지속 가능한 미래를 만들어갑니다.
             </p>
 
             <div className="space-y-4">
@@ -95,10 +99,11 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-neutral-800 font-primary">
-                    스마트 농업 솔루션
+                    스마트 APC 솔루션
                   </h4>
-                  <p className="text-neutral-600 font-secondary">
-                    IoT와 데이터 분석으로 농작물 생산성 향상
+                  <p className="text-neutral-600 font-secondary  mt-2">
+                    입고, 선별, 저장, 출하 관리 전산화 및 단계별 생성데이터를
+                    활용한 스마트 운영관리 프로그램
                   </p>
                 </div>
               </div>
@@ -122,10 +127,10 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-neutral-800 font-primary">
-                    자원 효율화
+                    지속가능한 농업 솔루션
                   </h4>
-                  <p className="text-neutral-600 font-secondary">
-                    물과 에너지 사용을 최적화하는 지능형 시스템
+                  <p className="text-neutral-600 font-secondary  mt-2">
+                    농업 가치사슬에 스마트기술을 적용하여 미래농업의 새로운 기준
                   </p>
                 </div>
               </div>
@@ -149,10 +154,11 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-neutral-800 font-primary">
-                    기후 적응 농업
+                    신뢰할수 있는 스마트 플랫폼
                   </h4>
-                  <p className="text-neutral-600 font-secondary">
-                    기후 변화에 대응하는 혁신적인 재배 방식
+                  <p className="text-neutral-600 font-secondary mt-2">
+                    정보기술을 통한 생산자와 소비자를 연결하고 신롸할수 있는
+                    유통환경
                   </p>
                 </div>
               </div>
@@ -160,13 +166,13 @@ export default function AboutSection() {
           </div>
 
           <div className="order-1 md:order-2 animate__fadeInRight">
-            <div className="relative">
+            <div className="relative mr-4">
               <div className="absolute inset-0 bg-[#4682B4] rounded-lg transform translate-x-4 translate-y-4"></div>
               <div className="relative bg-[#2E8B57] p-6 rounded-lg shadow-xl">
                 <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg mb-6"></div>
                 <div className="text-white">
-                  <h3 className="text-xl font-bold mb-2 font-primary">
-                    2025년 주요 성과
+                  <h3 className="text-xl font-bold mb-8 font-primary">
+                    창업멤버 주요연혁
                   </h3>
                   <ul className="space-y-2 font-secondary">
                     <li className="flex items-center">
@@ -184,7 +190,8 @@ export default function AboutSection() {
                           d="M9 12l2 2 4-4"
                         />
                       </svg>
-                      물 사용량 30% 감소
+                      4차산업 기술을 활용한 스마트(통합마케팅조직)
+                      수급관리플랫폼
                     </li>
                     <li className="flex items-center">
                       <svg
@@ -201,7 +208,7 @@ export default function AboutSection() {
                           d="M9 12l2 2 4-4"
                         />
                       </svg>
-                      수확량 25% 증가
+                      괴산 노지스마트팜 빅데이터 플랫폼
                     </li>
                     <li className="flex items-center">
                       <svg
@@ -218,7 +225,8 @@ export default function AboutSection() {
                           d="M9 12l2 2 4-4"
                         />
                       </svg>
-                      탄소 배출량 45% 감소
+                      인공지능을 이용한 스마트 온실의 완전자율형 복합환경 제어
+                      플랫폼
                     </li>
                   </ul>
                 </div>

@@ -1,41 +1,54 @@
-"use client";
+'use client'
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
 
   useEffect(() => {
     // 모바일 메뉴 토글 스크립트
     const handleResize = () => {
       if (window.innerWidth >= 1024 && isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
+        setIsMobileMenuOpen(false)
       }
-    };
+    }
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [isMobileMenuOpen]);
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [isMobileMenuOpen])
 
   return (
     <header id="header">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-4 fixed w-full z-50">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <Link href="#hero" className="flex items-center">
-            <span 
+          <Link
+            href="#hero"
+            className="flex items-center"
+          >
+            <span
               className="self-center text-xl font-semibold whitespace-nowrap text-primary-600 font-primary"
-              style={{ color: "rgb(0, 0, 0)", fontSize: "22px", fontWeight: 600, lineHeight: "28px" }}
+              style={{
+                color: 'rgb(0, 0, 0)',
+                fontSize: '22px',
+                fontWeight: 600,
+                lineHeight: '28px',
+              }}
             >
               Why
             </span>
-            <span 
+            <span
               className="self-center text-xl font-semibold whitespace-nowrap text-primary-600 font-primary"
-              style={{ color: "#0166CD", fontSize: "22px", fontWeight: 600, lineHeight: "28px" }}
+              style={{
+                color: '#0166CD',
+                fontSize: '22px',
+                fontWeight: 600,
+                lineHeight: '28px',
+              }}
             >
               Works
             </span>
@@ -50,7 +63,7 @@ export default function Header() {
             >
               <span className="sr-only">메뉴 열기</span>
               <svg
-                className={`w-6 h-6 ${isMobileMenuOpen ? "hidden" : ""}`}
+                className={`w-6 h-6 ${isMobileMenuOpen ? 'hidden' : ''}`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +75,7 @@ export default function Header() {
                 ></path>
               </svg>
               <svg
-                className={`w-6 h-6 ${isMobileMenuOpen ? "" : "hidden"}`}
+                className={`w-6 h-6 ${isMobileMenuOpen ? '' : 'hidden'}`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +90,7 @@ export default function Header() {
           </div>
           <div
             className={`${
-              isMobileMenuOpen ? "" : "hidden"
+              isMobileMenuOpen ? '' : 'hidden'
             } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu"
           >
@@ -123,5 +136,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  );
-} 
+  )
+}
