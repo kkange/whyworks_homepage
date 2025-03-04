@@ -10,34 +10,39 @@ export default function AboutSection() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (entry.target.classList.contains('animate__fadeIn')) {
-              entry.target.classList.add('animate__animated')
-            } else if (entry.target.classList.contains('animate__fadeInLeft')) {
-              entry.target.classList.add('animate__animated')
-            } else if (
-              entry.target.classList.contains('animate__fadeInRight')
-            ) {
-              entry.target.classList.add('animate__animated')
+            const animationClass = entry.target.getAttribute('data-animate');
+            if (animationClass) {
+              entry.target.classList.add('animate__animated', animationClass);
             }
-            observer.unobserve(entry.target)
+            observer.unobserve(entry.target);
           }
-        })
+        });
       },
       { threshold: 0.1 }
-    )
+    );
 
     document
       .querySelectorAll(
         '.animate__fadeIn, .animate__fadeInLeft, .animate__fadeInRight'
       )
       .forEach((item) => {
-        observer.observe(item)
-      })
+        // store the original animation class in a data attribute
+        if (item.classList.contains('animate__fadeIn')) {
+          item.setAttribute('data-animate', 'animate__fadeIn');
+        } else if (item.classList.contains('animate__fadeInLeft')) {
+          item.setAttribute('data-animate', 'animate__fadeInLeft');
+        } else if (item.classList.contains('animate__fadeInRight')) {
+          item.setAttribute('data-animate', 'animate__fadeInRight');
+        }
+        // remove the animation classes so they don't animate on initial load
+        item.classList.remove('animate__fadeIn', 'animate__fadeInLeft', 'animate__fadeInRight');
+        observer.observe(item);
+      });
 
     return () => {
-      observer.disconnect()
-    }
-  }, [])
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <section

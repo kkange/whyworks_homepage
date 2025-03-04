@@ -10,9 +10,9 @@ export default function ServicesSection() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const animationClasses = Array.from(entry.target.classList).filter((cls) => cls.startsWith("animate__"));
-            if (animationClasses.length > 0) {
-              entry.target.classList.add("animate__animated");
+            const animationClass = entry.target.getAttribute('data-animate');
+            if (animationClass) {
+              entry.target.classList.add('animate__animated', animationClass);
             }
             observer.unobserve(entry.target);
           }
@@ -22,14 +22,15 @@ export default function ServicesSection() {
     );
 
     document.querySelectorAll('[class*="animate__"]').forEach((item) => {
-      if (!item.classList.contains("animate__animated")) {
-        item.classList.remove(
-          "animate__fadeIn",
-          "animate__fadeInUp",
-          "animate__delay-1s",
-          "animate__delay-2s",
-          "animate__delay-3s"
-        );
+      if (!item.classList.contains('animate__animated')) {
+        // store the original animation class in a data attribute (check for specific classes)
+        if (item.classList.contains('animate__fadeIn')) {
+          item.setAttribute('data-animate', 'animate__fadeIn');
+        } else if (item.classList.contains('animate__fadeInUp')) {
+          item.setAttribute('data-animate', 'animate__fadeInUp');
+        }
+        // remove animation classes so they don't animate on initial load
+        item.classList.remove('animate__fadeIn', 'animate__fadeInUp', 'animate__delay-1s', 'animate__delay-2s', 'animate__delay-3s');
         observer.observe(item);
       }
     });
