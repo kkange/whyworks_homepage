@@ -110,7 +110,7 @@ export default function ServicesSection() {
                     />
                   </svg>
                   <span className="text-neutral-700 font-secondary">
-                    실시간 저장고 모니링
+                    실시간 저장고 모니터링
                   </span>
                 </li>
                 <li className="flex items-start">
