@@ -86,8 +86,8 @@ export default function Header() {
           <div className="flex items-center lg:order-2">
             <button
               type="button"
-              className={`inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden focus:outline-none focus:ring-2 ${
-                scrolled
+              className={`inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden  ${
+                scrolled || isMobileMenuOpen
                   ? 'text-neutral-600 hover:bg-neutral-100 focus:ring-neutral-200'
                   : 'text-white hover:bg-white/10 focus:ring-white/20'
               }`}
