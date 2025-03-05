@@ -124,7 +124,7 @@ export default function Header() {
           </div>
           <div
             className={`${
-              isMobileMenuOpen ? '' : 'hidden'
+              isMobileMenuOpen ? '' : 'hidden lg:flex md:flex'
             } justify-between items-center w-full lg:${
               scrolled ? 'flex' : 'hidden'
             } lg:w-auto lg:order-1`}
@@ -140,6 +140,7 @@ export default function Header() {
                   href="#hero"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-600 lg:p-0 font-medium"
                   style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
+                  onClick={toggleMobileMenu}
                 >
                   홈
                 </Link>
@@ -149,6 +150,7 @@ export default function Header() {
                   href="#about"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-600 lg:p-0 font-medium"
                   style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
+                  onClick={toggleMobileMenu}
                 >
                   소개
                 </Link>
@@ -158,6 +160,7 @@ export default function Header() {
                   href="#services"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-600 lg:p-0 font-medium"
                   style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
+                  onClick={toggleMobileMenu}
                 >
                   서비스
                 </Link>
@@ -167,6 +170,7 @@ export default function Header() {
                   href="#contact"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-600 lg:p-0 font-medium"
                   style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
+                  onClick={toggleMobileMenu}
                 >
                   문의하기
                 </Link>
